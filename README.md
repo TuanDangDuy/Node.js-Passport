@@ -8,6 +8,8 @@ https://viblo.asia/p/su-dung-passport-local-xay-dung-chuc-nang-login-theo-mo-hin
 
 https://viblo.asia/p/passport-trong-nodejs-authentication-1VgZvwdrlAw
 
+https://hocweb.vn/cach-su-dung-passport-jwt-trong-nodejs/
+
 #
 
 Authenticate Login with Passport: https://codetheworld.io/xac-thuc-dang-nhap-bang-passport-bat-dau-voi-local-authentication.html
