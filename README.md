@@ -25,3 +25,32 @@ Dùng làm gì:
     Hiển thị thông báo lỗi ra phía người dùng (connect-flash, yêu cầu sử dụng express version > 3.0)
     Liên kết tất cả các tài khoản mạng xã hội dưới một tài khoản.
     Cho phép một người dùng có thể hủy liên kết một tài khoản mạng xã hội.
+
+#
+---------passport-local----------https://www.passportjs.org/packages/passport-local/
+
+    passport.use(new LocalStrategy(
+      function(username, password, done) {
+        // tìm người dùng trong hệ thống bằng tên đăng nhập (username)
+        User.findOne({ username: username }, function (err, user) {
+          if (err) { return done(err); } // nếu lỗi thì báo lỗi
+          if (!user) { return done(null, false); } // nếu không tìm thấy người dùng thì báo lỗi không xác thực được
+          if (!user.verifyPassword(password)) { return done(null, false); } // nếu mật khẩu không chính xác thì báo lỗi không xác thực được
+          return done(null, user); // nếu xác thực được thì trả về người dùng
+        });
+      }
+    ));
+    
+    - passport.use() dùng để thiết lập một phương thức xác thực mới.
+    - LocalStrategy được sử dụng để xác thực người dùng bằng cách so sánh tên đăng nhập và mật khẩu với cơ sở dữ liệu của người dùng. Đây là một trong các chiến lược xác thực được hỗ trợ bởi Passport.
+    - function(username, password, done) là hàm xử lý xác thực. Nó nhận vào hai tham số là tên đăng nhập (username) và mật khẩu (password), và một hàm callback (done) để trả về kết quả xác thực.
+    - Trong hàm xử lý xác thực, User.findOne() được sử dụng để tìm người dùng trong cơ sở dữ liệu bằng tên đăng nhập. Nếu không tìm thấy người dùng thì trả về lỗi không xác thực được (done(null, false)).
+    - Nếu tìm thấy người dùng, user.verifyPassword() được sử dụng để kiểm tra tính hợp lệ của mật khẩu. Nếu mật khẩu không chính xác thì trả về lỗi không xác thực được (done(null, false)).
+    - Nếu tất cả đều hợp lệ, done(null, user) được sử dụng để trả về kết quả xác thực với thông tin người dùng.    
+    
+
+
+
+
+
+
