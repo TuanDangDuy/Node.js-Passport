@@ -56,3 +56,9 @@ Dùng làm gì:
 
 
 
+
+
+
+- Phải cài thêm express-session trong passport, vì: express-session là một middleware trong ExpressJS cho phép lưu trữ thông tin phiên làm việc của người dùng trên server. Nó cho phép tạo ra các phiên làm việc và lưu trữ các giá trị liên quan đến phiên đó, chẳng hạn như thông tin đăng nhập, thông tin giỏ hàng, và các thông tin khác cần thiết.
+
+
